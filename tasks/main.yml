@@ -1,0 +1,11 @@
+---
+
+- name: APT_KEY | Install GPP key
+  apt_key: url=https://download.owncloud.org/download/repositories/stable/Debian_8.0/Release.key
+
+- name: APT_REPOSITORY | Install upstream repository 
+  apt_repository: >
+    repo='deb http://download.owncloud.org/download/repositories/stable/Debian_8.0/ /'
+
+- name: APT | Install owncloud
+  apt: name=owncloud state=present
